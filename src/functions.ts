@@ -31,8 +31,7 @@ export function add3(first: number, second: number, third: number): number {
         return third;
     } else if (first > 0 && second <= 0 && third > 0) {
         return third + first;
-    }
-    return 0;
+    } else return 0;
 }
 
 /**
