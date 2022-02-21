@@ -12,7 +12,7 @@ function App(): JSX.Element {
             </header>
             <h2>SC2 Zerg Image</h2>
             <img
-                src="C:/Users/admin/Pictures/Saved Pictures/Zerg.jpg"
+                src="https://static2.srcdn.com/wordpress/wp-content/uploads/2019/09/SC2-Zerg-Image.jpg?q=50&fit=crop&w=960&h=500&dpr=1.5"
                 alt="A picture of Zerg"
             />
             <Button onClick={() => console.log("Hello World!")}>
