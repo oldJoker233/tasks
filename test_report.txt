@@ -2,6 +2,44 @@
 > react-typescript-starter@0.1.0 test
 > react-scripts test "--coverage"
 
+PASS src/arrays.test.ts
+  ● Console
+
+    console.log
+      else
+
+      at injectPositive (src/arrays.ts:149:13)
+
+    console.log
+      else
+
+      at injectPositive (src/arrays.ts:149:13)
+
+    console.log
+      else
+
+      at injectPositive (src/arrays.ts:149:13)
+
+    console.log
+      else
+
+      at injectPositive (src/arrays.ts:149:13)
+
+    console.log
+      if branch
+
+      at injectPositive (src/arrays.ts:137:17)
+
+    console.log
+      if branch
+
+      at injectPositive (src/arrays.ts:137:17)
+
+    console.log
+      else
+
+      at injectPositive (src/arrays.ts:149:13)
+
 PASS src/HtmlCss.test.tsx
 PASS src/functions.test.ts
 PASS src/text.test.tsx
@@ -9,13 +47,14 @@ PASS src/App.test.tsx
 --------------|---------|----------|---------|---------|-------------------
 File          | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 --------------|---------|----------|---------|---------|-------------------
-All files     |   85.18 |     87.5 |     100 |   85.18 |                   
+All files     |    95.5 |    91.54 |     100 |   95.34 |                   
  App.tsx      |     100 |      100 |     100 |     100 |                   
+ arrays.ts    |     100 |      100 |     100 |     100 |                   
  functions.ts |      84 |     87.5 |     100 |      84 | 20,24,26,31       
 --------------|---------|----------|---------|---------|-------------------
 
-Test Suites: 4 passed, 4 total
-Tests:       14 passed, 14 total
+Test Suites: 5 passed, 5 total
+Tests:       23 passed, 23 total
 Snapshots:   0 total
-Time:        2.69 s
+Time:        3.296 s
 Ran all test suites.
