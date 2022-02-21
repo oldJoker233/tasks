@@ -1,3 +1,6 @@
+import { isNumericLiteral } from "typescript";
+import { isNumberObject } from "util/types";
+
 /**
  * Consume an array of numbers, and return a new array containing
  * JUST the first and last number. If there are no elements, return
@@ -5,7 +8,14 @@
  * the number twice.
  */
 export function bookEndList(numbers: number[]): number[] {
-    return numbers;
+    if (numbers.length === 0) {
+        return [];
+    } else if (numbers.length === 1) {
+        const ans2 = [...numbers, ...numbers];
+        return ans2;
+    }
+    const ans = [numbers[0], numbers[numbers.length - 1]];
+    return ans;
 }
 
 /**
@@ -13,7 +23,8 @@ export function bookEndList(numbers: number[]): number[] {
  * number has been tripled (multiplied by 3).
  */
 export function tripleNumbers(numbers: number[]): number[] {
-    return numbers;
+    const tripled = numbers.map((number: number): number => number * 3);
+    return tripled;
 }
 
 /**
@@ -21,9 +32,11 @@ export function tripleNumbers(numbers: number[]): number[] {
  * the number cannot be parsed as an integer, convert it to 0 instead.
  */
 export function stringsToIntegers(numbers: string[]): number[] {
-    return [];
+    const convert = numbers.map((number: string): number =>
+        parseInt(number) ? parseInt(number) : 0
+    );
+    return convert;
 }
-
 /**
  * Consume an array of strings and return them as numbers. Note that
  * the strings MAY have "$" symbols at the beginning, in which case
@@ -32,7 +45,13 @@ export function stringsToIntegers(numbers: string[]): number[] {
  */
 // Remember, you can write functions as lambdas too! They work exactly the same.
 export const removeDollars = (amounts: string[]): number[] => {
-    return [];
+    const remove$ = amounts.map((number: string): string =>
+        number.includes("$") ? number.slice(1) : number
+    );
+    const convert = remove$.map((number: string): number =>
+        parseInt(number) ? parseInt(number) : 0
+    );
+    return convert;
 };
 
 /**
@@ -41,7 +60,16 @@ export const removeDollars = (amounts: string[]): number[] => {
  * in question marks ("?").
  */
 export const shoutIfExclaiming = (messages: string[]): string[] => {
-    return [];
+    const questionOut = messages.filter(
+        (sentence: string): boolean =>
+            sentence.substring(sentence.length - 1) !== "?"
+    );
+    const shout = questionOut.map((sentence: string): string =>
+        sentence.substring(sentence.length - 1) === "!"
+            ? sentence.toUpperCase()
+            : sentence
+    );
+    return shout;
 };
 
 /**
@@ -49,7 +77,10 @@ export const shoutIfExclaiming = (messages: string[]): string[] => {
  * 4 letters long.
  */
 export function countShortWords(words: string[]): number {
-    return 0;
+    const getridoffletter = words.filter(
+        (word: string): boolean => word.length < 4
+    );
+    return getridoffletter.length;
 }
 
 /**
@@ -58,7 +89,19 @@ export function countShortWords(words: string[]): number {
  * then return true.
  */
 export function allRGB(colors: string[]): boolean {
-    return false;
+    if (colors.length === 0) {
+        return true;
+    }
+    const getridoffred = colors.filter(
+        (color: string): boolean => color !== "red"
+    );
+    const getridoffblue = getridoffred.filter(
+        (color: string): boolean => color !== "blue"
+    );
+    const getridoffgreen = getridoffblue.filter(
+        (color: string): boolean => color !== "green"
+    );
+    return getridoffgreen.length === 0 ? true : false;
 }
 
 /**
@@ -69,7 +112,15 @@ export function allRGB(colors: string[]): boolean {
  * And the array [] would become "0=0".
  */
 export function makeMath(addends: number[]): string {
-    return "";
+    if (addends.length === 0 || (addends.length === 1 && addends[0] === 0)) {
+        return "0=0";
+    }
+    const sum = addends.reduce((total: number, num: number) => total + num, 0);
+    const toString = addends.map(
+        (number: number): string => number.toString() + "+"
+    );
+    const string: string = sum + "=" + toString;
+    return string.substring(0, string.length - 1).replace(/,/g, "");
 }
 
 /**
@@ -82,5 +133,26 @@ export function makeMath(addends: number[]): string {
  * And the array [1, 9, 7] would become [1, 9, 7, 17]
  */
 export function injectPositive(values: number[]): number[] {
-    return [];
+    const backup = [...values];
+    const backup2 = [...values];
+    const findN = backup.find((value: number): boolean => value < 0);
+    if (findN) {
+        console.log("if branch");
+        const findNindx = backup.findIndex(
+            (value: number): boolean => value < 0
+        );
+        const newarray = backup.slice(0, findNindx);
+        const sumIneed = newarray.reduce(
+            (total: number, number: number) => total + number,
+            0
+        );
+        backup2.splice(findNindx + 1, 0, sumIneed);
+        return backup2;
+    }
+    console.log("else");
+    const sum = backup.reduce(
+        (total: number, number: number) => total + number,
+        0
+    );
+    return [...backup, sum];
 }
