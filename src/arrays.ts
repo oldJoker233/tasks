@@ -134,7 +134,6 @@ export function injectPositive(values: number[]): number[] {
     const backup2 = [...values];
     const findN = backup.find((value: number): boolean => value < 0);
     if (findN) {
-        console.log("if branch");
         const findNindx = backup.findIndex(
             (value: number): boolean => value < 0
         );
@@ -146,7 +145,6 @@ export function injectPositive(values: number[]): number[] {
         backup2.splice(findNindx + 1, 0, sumIneed);
         return backup2;
     }
-    console.log("else");
     const sum = backup.reduce(
         (total: number, number: number) => total + number,
         0
