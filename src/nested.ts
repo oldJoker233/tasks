@@ -268,10 +268,6 @@ export function editOption(
     targetOptionIndex: number,
     newOption: string
 ) {
-    console.log(targetId);
-    console.log(targetOptionIndex);
-    console.log(newOption);
-    console.log(questions);
     const backup = [...questions];
     const isTargertIn = questions.filter(
         (question: Question): boolean => question.id !== targetId
@@ -298,9 +294,7 @@ export function editOption(
             ...target,
             options: newOptions
         };
-        console.log(newTarget2);
         backup.splice(findTargertIdx, 1, newTarget2);
-        console.log(backup);
         return backup;
     }
     return [];
