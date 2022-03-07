@@ -3,24 +3,17 @@ import { Button } from "react-bootstrap";
 
 export function StartAttempt(): JSX.Element {
     const [count, setCount] = useState<number>(4);
-    const [driving, setDriving] = useState<boolean>(false);
+    const [start, setStart] = useState<boolean>(false);
 
     function onStart(): void {
         if (count > 0) {
-            setDriving(true);
+            setStart(true);
             setCount(count - 1);
         }
     }
 
-    function offStart(): boolean {
-        if (count == 0 || driving) {
-            return true;
-        }
-        return false;
-    }
-
     function onStop(): void {
-        setDriving(false);
+        setStart(false);
     }
     function onMulligan(): void {
         setCount(count + 1);
@@ -28,13 +21,13 @@ export function StartAttempt(): JSX.Element {
 
     return (
         <div>
-            <Button onClick={onStart} disabled={count === 0 || driving}>
+            <Button onClick={onStart} disabled={count === 0 || start}>
                 Start Quiz
             </Button>
-            <Button onClick={onStop} disabled={!driving}>
+            <Button onClick={onStop} disabled={!start}>
                 Stop Quiz
             </Button>
-            <Button onClick={onMulligan} disabled={driving}>
+            <Button onClick={onMulligan} disabled={start}>
                 Mulligan
             </Button>
             {count}

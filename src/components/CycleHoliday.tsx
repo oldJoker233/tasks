@@ -3,33 +3,33 @@ import { Button } from "react-bootstrap";
 
 type Holiday =
     | "Christmas"
-    | "Dragon Boat Festival"
+    | "DragonBoatFestival"
     | "Holloween"
-    | "Spring Festival"
+    | "SpringFestival"
     | "Thanksgiving";
 
 const BY_ALP: Record<Holiday, Holiday> = {
     Thanksgiving: "Christmas",
-    Christmas: "Dragon Boat Festival",
-    "Dragon Boat Festival": "Holloween",
-    Holloween: "Spring Festival",
-    "Spring Festival": "Thanksgiving"
+    Christmas: "DragonBoatFestival",
+    DragonBoatFestival: "Holloween",
+    Holloween: "SpringFestival",
+    SpringFestival: "Thanksgiving"
 };
 
 const BY_TIME: Record<Holiday, Holiday> = {
-    "Spring Festival": "Dragon Boat Festival",
-    "Dragon Boat Festival": "Holloween",
+    SpringFestival: "DragonBoatFestival",
+    DragonBoatFestival: "Holloween",
     Holloween: "Thanksgiving",
     Thanksgiving: "Christmas",
-    Christmas: "Spring Festival"
+    Christmas: "SpringFestival"
 };
 
 const EMOJ: Record<Holiday, string> = {
-    Christmas: "🎄",
-    "Dragon Boat Festival": "🎏",
-    Holloween: "🎃",
-    "Spring Festival": "🏮",
-    Thanksgiving: "🦃"
+    Christmas: "Holiday: 🎄",
+    DragonBoatFestival: "Holiday: 🎏",
+    Holloween: "Holiday: 🎃",
+    SpringFestival: "Holiday: 🏮",
+    Thanksgiving: "Holiday: 🦃"
 };
 
 export function CycleHoliday(): JSX.Element {

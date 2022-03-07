@@ -19,11 +19,11 @@ export function TwoDice(): JSX.Element {
         <>
             <span>
                 <Button onClick={() => setValueL(d6)}>Roll Left</Button>
-                {valueL}
+                <div data-testid="left-die">{valueL}</div>
             </span>
             <span>
                 <Button onClick={() => setValueR(d6)}>Roll Right</Button>
-                {valueR}
+                <div data-testid="right-die">{valueR}</div>
             </span>
             <div>
                 {valueL === valueR && valueR !== 1 ? (
