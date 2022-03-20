@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Form } from "react-bootstrap";
 
+const CHOICE = ["A", "B", "C"];
 export function MultipleChoiceQuestion({
     options,
     expectedAnswer
@@ -18,11 +19,11 @@ export function MultipleChoiceQuestion({
         <div>
             <h3>Multiple Choice Question</h3>
             <Form.Group controlId="userChoice">
-                <Form.Label>What is ypur choice?</Form.Label>
+                <Form.Label>What is your choice? Answer is B</Form.Label>
                 <Form.Select value={choice} onChange={updateOption}>
-                    {options.map((option: string) => (
-                        <option key={option} value={option}>
-                            {options}
+                    {CHOICE.map((color: string) => (
+                        <option key={color} value={color}>
+                            {color}
                         </option>
                     ))}
                 </Form.Select>
