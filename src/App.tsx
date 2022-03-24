@@ -16,6 +16,18 @@ import { EditMode } from "./form-components/EditMode";
 import { MultipleChoiceQuestion } from "./form-components/MultipleChoiceQuestion";
 import { ChangeColor } from "./form-components/ChangeColor";
 import { Quizzer } from "./quizzer/Quizzer";
+import { Question } from "./interfaces/question";
+import questions from "./data/questions.json";
+
+const QUESTIONS = questions.BLANK_QUESTIONS.map(
+    (question): Question => ({
+        ...question,
+        type:
+            question.type === "multiple_choice_question"
+                ? "multiple_choice_question"
+                : "short_answer_question"
+    })
+);
 
 function App(): JSX.Element {
     return (
