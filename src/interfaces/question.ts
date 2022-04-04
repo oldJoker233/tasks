@@ -5,8 +5,6 @@ export type QuestionType = "multiple_choice_question" | "short_answer_question";
 export interface Question {
     /** A unique identifier for the question */
     id: number;
-    /** The human-friendly title of the question */
-    name: string;
     /** The instructions and content of the Question */
     body: string;
     /** The kind of Question; influences how the user answers and what options are displayed */
@@ -19,4 +17,6 @@ export interface Question {
     points: number;
     /** Whether or not this question is ready to display to students */
     published: boolean;
+    /** The answer currently submitted via a form interface in the Question component */
+    submission: string;
 }

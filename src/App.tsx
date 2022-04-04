@@ -1,59 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
+import { Quizzer } from "./quizzer/Quizzer";
 import { Button } from "react-bootstrap";
-import { Container } from "react-bootstrap";
-import { Row } from "react-bootstrap";
-import { Col } from "react-bootstrap";
+import { ShowHideTasks } from "./tasks/ShowHideTasks";
+
 function App(): JSX.Element {
+    const [quizzer, setQuizzer] = useState<boolean>(true);
+
     return (
         <div className="App">
             <header className="App-header">
-                UD CISC275 with React Hooks and TypeScript Name:Hexuan Jiang
+                UD CISC275 with React Hooks and TypeScript Hexuan Jiang
+                <Button
+                    onClick={() => {
+                        setQuizzer(!quizzer);
+                    }}
+                >
+                    {quizzer ? "Quizzer" : "Tasks"}
+                </Button>
             </header>
-            <h2>SC2 Zerg Image</h2>
-            <img
-                src="https://static2.srcdn.com/wordpress/wp-content/uploads/2019/09/SC2-Zerg-Image.jpg?q=50&fit=crop&w=960&h=500&dpr=1.5"
-                alt="A picture of Zerg"
-            />
-            <Button onClick={() => console.log("Hello World!")}>
-                Log Hello World
-            </Button>
-            <Container>
-                <Row>
-                    <div
-                        style={{
-                            border: "1px solid red",
-                            background: "red",
-                            height: "80px",
-                            width: "650px"
-                        }}
-                    >
-                        <Col xs="auto">
-                            <ol>
-                                <li>Maru</li>
-                                <li>Rogue</li>
-                                <li>Zest</li>
-                            </ol>
-                        </Col>
-                    </div>
-                    <div
-                        style={{
-                            border: "1px solid red",
-                            background: "red",
-                            height: "80px",
-                            width: "650px"
-                        }}
-                    >
-                        <Col xs="auto">
-                            On the left side are 3 SC2 pro gammer.
-                        </Col>
-                    </div>
-                </Row>
-            </Container>
-            <p>
-                Edit <code>src/App.tsx</code> and save. This page will
-                automatically reload. Hello World
-            </p>
+            <div style={{ display: quizzer ? "block" : "none" }}>
+                <Quizzer></Quizzer>
+            </div>
+            <ShowHideTasks visible={!quizzer}></ShowHideTasks>
         </div>
     );
 }
