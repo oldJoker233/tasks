@@ -57,7 +57,7 @@ export const QuizEdit = ({
 
     return (
         <div>
-            <div className="edit_header">
+            <div>
                 <Form.Group controlId="formEditQuizId">
                     <div className="title_published_flex">
                         <div className="edit_title_area">
@@ -119,7 +119,6 @@ export const QuizEdit = ({
             <hr />
             <div>
                 <Button
-                    className="add_question_button"
                     onClick={() => {
                         setNewQuiz({
                             ...newQuiz,
@@ -141,7 +140,7 @@ export const QuizEdit = ({
                 >
                     Add Question
                 </Button>
-                <div className="edit_footer">
+                <div>
                     <div>
                         <Button
                             variant="success"
