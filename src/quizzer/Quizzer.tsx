@@ -61,6 +61,11 @@ export const Quizzer = () => {
                 handleClose={handleCloseModal}
                 addQuiz={addQuiz}
             ></AddQuizModal>
+            <hr />
+            <h2 style={{ color: "black" }}>Application Sketch</h2>
+            <img src={require("./sketch1.jpg")} />
+            <img src={require("./sketch2.jpg")} />
+            <hr />
         </div>
     );
 };
